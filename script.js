@@ -1,5 +1,15 @@
-Redirect = setTimeout(function(){
-	window.location = "http://brite-advisors.com";
-}, 3000)
+function countdown(){
+	var counter = document.getElementById('timer_div');
+	counter.innerHTML = parseInt(counter.innerHTML)-1;
+	if (parseInt(counter.innerHTML) == 0)
+	{
+		clearInterval(timerId);
+		window.location = "http://brite-advisors.com";
+	}
+}
 
-window.onload = Redirect;
+var timerId = setInterval(function(){
+	countdown();
+}, 1000);
+
+window.onload = timerId;
